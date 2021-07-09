@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 17px;
+}
+
+html, body {
+    margin: 0;
+    background-color: #000020;
+}
+
+@font-face {
+    font-family: 'tiles';
+    src: url('./fonts/ZenTokyoZoo-Regular.ttf');
+}
+
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+}
+
+.btns {
+    display: flex;
+    flex-flow: row wrap;
+    place-content: center space-between;
+    width: 20%;
+    height: 5rem;
+}
+
+.btn {
+    width: 45%;
+    height: 40%;
+    border: none;
+    border-bottom: 2px solid #14bdac;
+    border-radius: 1rem;
+    outline: none;
+    text-align: left;
+    font-size: large;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 30rem;
+    height: 30rem;
+    /* background: #14bdac; */
+    background: inherit;
+}
+
+.tile {
+    border: solid 1.5px grey;
+    outline: none;
+    width: 10rem;
+    height: 10rem;
+    color: white;
+    text-align: center;
+    padding: 4rem;
+    font-size: 2.6rem;
+    font-family: 'tiles';
+}
+
+.tile:nth-child(-n+3) {
+    border-top: none;
+}
+
+.tile:nth-child(3n+3) {
+    border-right: none;
+}
+
+.tile:nth-child(3n+1) {
+    border-left: none;
+}
+
+.tile:nth-child(n+7) {
+    border-bottom: none;
+}
