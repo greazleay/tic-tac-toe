@@ -1,14 +1,31 @@
-const gameBoard = { game: new Array(9) };
+const gameBoard = { ai: new Array(9) };
 const tiles = document.querySelectorAll('.tile');
 
-tiles.forEach((tile, index) => {
-    tile.addEventListener('click', function () {
-        if (tile.textContent === '') {
-            tile.textContent = 'X';
-            gameBoard.game[index] = tile.textContent    
-        }
-    })
+function gameRound(X, O) {
+    switch (true) {
+        case (X === 'Player X Wins') :
+        case (O === 'Player O Wins') :
+            console.log(`Game Over`)    
+            break;
+        default:
+            break;
+    }
+}
+
+const gameSession = (e) => { gameRound(player(e), computerPlay())}
+
+tiles.forEach(tile => {
+    tile.addEventListener('click', gameSession)
 })
+
+function player(e) {
+    if (e.target.textContent === '') {
+        e.target.textContent = 'X';
+        e.target.style.color = 'red';
+        gameBoard.ai[Array.from(tiles).indexOf(e.target)] = e.target.textContent;
+    }
+     return checkWinner(gameBoard.ai, 'X')
+}
 
 function computerPlay() {
     let n = Math.floor(Math.random() * 9);
@@ -19,15 +36,11 @@ function computerPlay() {
     if (stop()) return;
     if (tiles[n].textContent === '') {
         tiles[n].textContent = 'O';
-        gameBoard.game[n] = tiles[n].textContent;
-        return
+        gameBoard.ai[n] = tiles[n].textContent;
+        return checkWinner(gameBoard.ai, 'O');
     } 
     computerPlay();
 };
-
-function gameSession(X, O) {
-    
-}
 
 function checkWinner(a, p) {
     const isPlayer = (currentItem) => currentItem === p;
@@ -44,7 +57,6 @@ function checkWinner(a, p) {
             console.log(`Player ${p} Wins`);
             break;
         default:
-            console.log(`XO Draw!!!`);
             break;
     }
 }

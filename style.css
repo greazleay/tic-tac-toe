@@ -60,7 +60,7 @@ html, body {
     padding: 3rem;
     font-size: 4rem;
     font-family: 'tiles';
-    transition: color 2s ease-in-out;
+    transition: color 0.3s ease-in-out;
 }
 
 .tile:nth-child(-n+3) {
