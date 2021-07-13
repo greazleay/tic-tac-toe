@@ -12,15 +12,15 @@ const btns = document.createElement('div');
 btns.classList.add('btns');
 container.appendChild(btns);
 
-const addBtn = (text) => {
+const addBtn = (text, parent) => {
     let btn = document.createElement('button');
     btn.classList.add('btn');
     btn.textContent = text;
-    btns.appendChild(btn);
+    parent.appendChild(btn);
 }
 
-addBtn('X');
-addBtn('O');
+addBtn('X', btns);
+addBtn('O', btns);
 
 const board = document.createElement('div');
 board.classList.add('board');
@@ -35,3 +35,13 @@ const addTile = () => {
 for (let i = 0; i < 9; i++) {
     addTile()
 }
+
+const final = document.createElement('div');
+final.classList.add('final');
+container.appendChild(final);
+
+const wins = document.createElement('p');
+final.appendChild(wins);
+
+addBtn('Restart', final)
+

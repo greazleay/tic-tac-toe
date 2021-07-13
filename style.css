@@ -28,16 +28,18 @@ html, body {
     place-content: center space-between;
     width: 20%;
     height: 5rem;
+    align-self: center;
+    margin-bottom: 2rem;
 }
 
 .btn {
-    width: 45%;
-    height: 40%;
+    width: 6rem;
+    height: 2rem;
     border: none;
     border-bottom: 2px solid #14bdac;
     border-radius: 1rem;
     outline: none;
-    text-align: left;
+    text-align: center;
     font-size: large;
 }
 
@@ -58,8 +60,7 @@ html, body {
     color: white;
     text-align: center;
     padding: 3rem;
-    font-size: 4rem;
-    font-family: 'tiles';
+    font: 4rem 'tiles';
     transition: color 0.3s ease-in-out;
 }
 
@@ -78,3 +79,23 @@ html, body {
 .tile:nth-child(n+7) {
     border-bottom: none;
 }
+
+.final {
+    align-self: center;
+    margin-top: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+p {
+    color: white;
+    font: 1rem cursive;
+}
+
+.final .btn {
+    color: white;
+    background: cornflowerblue;
+    display: none;
+    align-self: center;
+}
+
